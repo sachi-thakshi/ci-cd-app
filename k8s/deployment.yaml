@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: student-vm
+  name: ci-cd-app-vm
 spec:
   replicas: 3 # High Availability & Load Balancing
   selector:
     matchLabels:
-      app: student-vm
+      app: ci-cd-app-vm
   template:
     metadata:
       labels:
-        app: student-vm
+        app: ci-cd-app-vm
     spec:
       containers:
-        - name: student-vm
+        - name: ci-cd-app-vm
           image: DOCKER_IMAGE_TAG # Replaced dynamically by CI/CD pipeline
           ports:
             - containerPort: 8080

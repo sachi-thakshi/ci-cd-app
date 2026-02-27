@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: student-vm-service
+  name: ci-cd-app-vm-service
 spec:
   selector:
-    app: student-vm
+    app: ci-cd-app-vm
   type: NodePort
   ports:
     - protocol: TCP
