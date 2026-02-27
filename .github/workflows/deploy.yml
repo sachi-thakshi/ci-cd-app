@@ -5,7 +5,7 @@ on:
     branches: [ "main" ]
 
 env:
-  IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/Student-VM
+  IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/student-vm
 
 jobs:
   build-and-deploy:
@@ -43,4 +43,4 @@ jobs:
           # Update image tag dynamically
           sed -i "s|image: DOCKER_IMAGE_TAG|image: ${{ env.IMAGE_NAME }}:${{ github.sha }}|g" k8s/deployment.yaml
           kubectl apply -f k8s/
-          kubectl rollout restart deployment/Student-VM
+          kubectl rollout restart deployment/student-vm
